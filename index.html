@@ -14,89 +14,91 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Ajusta la altura del viewport */
-            background: linear-gradient(to bottom, #ccefff, #0066cc); /* degradado personalizado */
+            height: 100vh;
+            background: linear-gradient(to bottom, #ccefff, #0066cc);
         }
 
-        /* Contenedor principal para centrar contenido */
+        /* Contenedor principal */
         .qr-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #ffffff; /* Fondo blanco para el área del QR */
+            background-color: #ffffff;
             padding: 30px;
-            border-radius: 16px; /* Bordes redondeados */
-            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+            border-radius: 16px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
             text-align: center;
-            width: 350px; /* Ancho del contenedor */
+            width: 350px;
         }
 
         /* Estilo del logo */
         .logo {
-            width: 140px; /* tamaño del logo */
-            margin-bottom: 20px; /* espacio entre el logo y el título */
+            width: 140px;
+            margin-bottom: 20px;
         }
 
-        /* Título estilizado */
+        /* Título */
         .qr-container h1 {
             font-size: 24px;
             color: #333;
-            margin-bottom: 20px; /* Espacio debajo del título */
+            margin-bottom: 20px;
         }
 
         /* Estilo del código QR */
         canvas {
-            margin-bottom: 20px; /* Espacio debajo del código QR */
+            margin-bottom: 20px;
         }
 
-        /* Estilo del enlace de WhatsApp */
+        /* Estilo del enlace */
         p {
             font-size: 18px;
-            color: #555; /* Color de texto suave */
+            color: #555;
         }
 
         p a {
-            color: #29abe2; /* Color del enlace */
+            color: #29abe2;
             text-decoration: none;
             font-weight: bold;
         }
 
         p a:hover {
-            color: #216f96; /* Color de enlace al pasar el mouse */
+            color: #216f96;
         }
     </style>
 </head>
 <body>
     <div class="qr-container">
-        <!-- Logo en la parte superior -->
+        <!-- Logo -->
         <img src="logotipo-lyen-consulting.jpg" alt="Logo de Lyen Consulting" class="logo">
         
-        <!-- Título estilizado -->
-        <h1>Escanea el código para enviar un mensaje por WhatsApp</h1>
+        <!-- Título -->
+        <h1>Escanea el código para solicitar más detalles</h1>
         
-        <!-- Código QR generado por JavaScript -->
+        <!-- Código QR -->
         <canvas id="qr-code"></canvas>
 
-        <!-- Enlace alternativo para abrir WhatsApp directamente -->
-       <!-- <p>Haz clic <a href="https://wa.me/+5215548832292?text=Hola%20bienvenid@%20a%20nuestra%20línea%20de%20atención.">aquí</a> si prefieres abrir WhatsApp directamente.</p>-->
+        <!-- Enlace alternativo -->
+        <!--<p>Haz clic <a href="https://wa.me/+5215548832292?text=Hola,%20quiero%20más%20detalles%20sobre%20la%20información.%20¿Podrías%20ayudarme?">aquí</a> si prefieres abrir WhatsApp directamente.</p>-->
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script>
-        // Crear el código QR usando qrious
+        // Generar el código QR con un tamaño más grande
         var qr = new QRious({
             element: document.getElementById('qr-code'),
-            value: 'https://wa.me/+5215548832292?text=Hola,%20estoy%20interesad@%20y%20me%20gustaría%20más%20información.', // Tu enlace de WhatsApp
-            size: 200, // Tamaño del QR
+            value: 'https://wa.me/+5215548832292?text=Hola,%20quiero%20saber%20m%C3%A1s%20detalles%20de%20ustedes.',
+            size: 250,
         });
-        //Añadir el icono de Whatsapp en el centro del QR
+
+        // Añadir icono de WhatsApp en el centro
         var ctx = qr.canvas.getContext('2d');
         var img = new Image();
-        img.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'; // URL del ícono de WhatsApp
+        img.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg';
         img.onload = function() {
-            ctx.drawImage(img, (qr.canvas.width - 60) / 2, (qr.canvas.height - 60) / 2, 60, 60); // Ajusta el tamaño y posición del ícono
+            ctx.drawImage(img, (qr.canvas.width - 60) / 2, (qr.canvas.height - 60) / 2, 60, 60);
         };
     </script>
 </body>
 </html>
+
